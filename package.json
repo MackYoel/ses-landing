@@ -1,0 +1,22 @@
+{
+  "name": "ses-landing",
+  "version": "1.0.0",
+  "description": "awesome ses landing",
+  "author": "MackYoel",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "cross-env": "^5.2.0",
+    "normalize.css": "^8.0.1",
+    "nuxt": "^2.0.0",
+    "postcss-preset-env": "^6.4.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}
