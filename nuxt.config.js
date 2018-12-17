@@ -49,6 +49,9 @@ module.exports = {
   /*
   ** Build configuration
   */
+  env: {
+    hostName: process.env.HOST_NAME || 'http://localhost:8000'
+  },
   build: {
     /*
     ** You can extend webpack config here

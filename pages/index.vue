@@ -55,7 +55,7 @@ export default {
         },
         {
           property: 'og:image',
-          content: fbCover
+          content: `${process.env.hostName}${fbCover}`
         },
         {
           property: 'robots',
