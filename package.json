@@ -1,7 +1,7 @@
 {
   "name": "ses-landing",
   "version": "1.0.0",
-  "description": "awesome ses landing",
+  "description": "Especialistas en asesoría de trabajos académicos.",
   "author": "MackYoel",
   "private": true,
   "scripts": {
@@ -12,6 +12,7 @@
     "heroku-postbuild": "npm run build"
   },
   "dependencies": {
+    "@nuxtjs/google-analytics": "^2.0.2",
     "cross-env": "^5.2.0",
     "normalize.css": "^8.0.1",
     "nuxt": "^2.0.0",

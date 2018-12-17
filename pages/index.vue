@@ -7,14 +7,20 @@
           <h1>Salvando el semestre</h1>
         </div>
         <div class="img">
-          <img src="~/assets/ses-gif.gif">
+          <img src="~/assets/release.gif">
         </div>
         <div class="text-container">
           <div class="text">
             <p class="copy">Estamos preparando sorpresas para ti.</p>
-            <!-- <button>
-              Quiero saber más
-            </button> -->
+            <div class="button-wrapper">
+              <a
+                class="button cta-button"
+                href="https://www.facebook.com/SalvandoSemestre/"
+                target="_blanck"
+              >
+                QUIERO SABER MÁS
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -24,17 +30,41 @@
 </template>
 
 <script>
-// import SesIcon from '~/assets/ses-icon'
+import fbCover from '~/assets/fb-cover.png'
 
 export default {
-  async asyncData() {
-    return {
-      // SesIcon
-    }
-  },
   head() {
     return {
-      title: 'SES'
+      title: 'SES',
+      meta: [
+        {
+          property: 'og:url',
+          content: 'https://salvandoelsemestre.com'
+        },
+        {
+          property: 'og:type',
+          content: 'website'
+        },
+        {
+          property: 'og:title',
+          content: 'Salvando el semestre'
+        },
+        {
+          property: 'og:description',
+          content: 'Asesoría en trabajos académicos'
+        },
+        {
+          property: 'og:image',
+          content: fbCover
+        },
+        {
+          property: 'robots',
+          content: 'index, follow'
+        }
+      ],
+      link: [
+        { rel: 'canonical', href: 'https://salvandoelsemestre.com' }
+      ]
     }
   }
 }
@@ -99,7 +129,15 @@ export default {
 }
 
 img {
-  width: 100%;
+  max-width: 100%;
+
+  @media (width >= 350px) {
+    max-width: 80%;
+  }
+
+  @media (width >= 768px) {
+    max-width: 100%;
+  }
 }
 
 .hero {
@@ -112,24 +150,57 @@ img {
 
 .img {
   grid-area: img;
+  text-align: center;
 }
 
 .hero h1 {
   color: var(--color-green);
-  font-size: 3em;
+  font-size: 2.5em;
   text-align: center;
+  margin-bottom: 0;
+
+  @media (width >= 768px) {
+    font-size: 3em;
+  }
 }
 
 .copy {
   text-align: center;
   font-size: 1.5em;
   color: var(--color-dark);
-  margin-bottom: 1.5em;
+  margin: 0 0 1rem 0;
 
   @media (width >= 768px) {
-    margin: 0;
+    margin-top: .6rem;
+    margin-bottom: 2rem;
     align-self: flex-start;
   }
 }
 
+.button-wrapper {
+  display: block;
+  text-align: center;
+}
+
+.button {
+  border: none;
+  border-radius: 3em;
+  box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+  display: inline-block;
+  font-size: 1em;
+  padding: 1em 2em;
+  width: auto;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.cta-button {
+  background-color: var(--color-blue);
+  text-decoration: none;
+}
+
+.cta-button:hover {
+  background-color: var(--color-blue);
+}
 </style>
