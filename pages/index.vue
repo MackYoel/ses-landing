@@ -13,13 +13,13 @@
           <div class="text">
             <p class="copy">Estamos preparando sorpresas para ti.</p>
             <div class="button-wrapper">
-              <a
+              <nuxt-link
                 class="button cta-button"
-                href="https://www.facebook.com/SalvandoSemestre/"
+                to="/blog"
                 target="_blanck"
               >
-                QUIERO SABER MÁS
-              </a>
+                VISITAR NUESTRO BLOG 
+              </nuxt-link>
             </div>
           </div>
         </div>
@@ -81,24 +81,7 @@ export default {
   --color-border: #e8e8e8;
 }
 
-.viewport-container {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
-
 .container {
-  padding: calc(var(--spacing) * 1.5) var(--spacing);
-  max-width: var(--main-width);
-  margin: 0 auto;
-  position: absolute;
-  bottom: 0;
-  top: 0;
-  left: 0;
-  right: 0;
-  display: flex;
   align-items: center;
   justify-content: center;
 
