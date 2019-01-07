@@ -8,7 +8,7 @@
 
 .container {
   padding: calc(var(--spacing) * 1.5) var(--spacing);
-  max-width: var(--main-width);
+  max-width: 740px;
   margin: 0 auto;
   position: absolute;
   bottom: 0;
@@ -16,6 +16,26 @@
   left: 0;
   right: 0;
   display: flex;
-  /*align-items: center;
-  justify-content: center;*/
+}
+
+.button {
+  border: none;
+  border-radius: 3em;
+  box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+  display: inline-block;
+  font-size: 1em;
+  padding: 1em 2em;
+  width: auto;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.cta-button {
+  background-color: var(--color-blue);
+  text-decoration: none;
+}
+
+.cta-button:hover {
+  background-color: var(--color-blue);
 }

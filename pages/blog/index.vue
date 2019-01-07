@@ -6,10 +6,10 @@
       </h1>
     </div>
     <p class="copy">
-      ¡Bienvenido! el blog de SES nace para informarte con breves explicaciones a cerca de temas que siempre tuviste curiosidad, como quien diría, <strong>#infoDeBolsillo</strong>
+      ¡Bienvenido! el blog de SES nace para informarte con breves explicaciones acerca de temas que siempre tuviste curiosidad, como quien diría, <strong class="gray">#infoDeBolsillo</strong>
     </p>
 
-    <h2>¿Por qué nos besamos?</h2>
+    <h2 class="dark">¿Por qué nos besamos?</h2>
     <p>
       El beso es frecuentemente percibido como símbolo de un amor romántico. Una dulce manera de expresar el afecto, pero surge la pregunta ¿por qué una boca atrae a la otra?
     </p>
@@ -19,30 +19,41 @@
         La Dra. Helen Fisher antropóloga de la Universidad Rutgers de New Jersey.
       </span>
       <a href="javascript:void(0)" @click="toggleSource(0)">{{ sources.s0 ? 'Okay' : '¿Quién dice?'}}</a><br>
-      En una entrevista a más de un millar de personas, se obtuvo tres hipotesis:
+      En una entrevista a más de un millar de personas, se obtuvo tres hipótesis:
 
-      <ul>
-        <li>
-          Besar a la pareja en la boca, sentir su aliento y saliva, recoge informaciones (químicas y biológicas) sobre él o ella.
-        </li>
-        <li>
-          El beso en la boca permite establecer un lazo sólido.
-        </li>
-        <li>
-          Besarse en la boca tiene por función lograr el estado de excitación que precede a una relación sexual.
-        </li>
-      </ul>
-
-      <p>Podemos pensar que todo se reduce a un tema meramente reproductivo, pero los chimpasés nos muestran que no siempre es así, ellos se besan entre machos y como un método de reconciliación después de resolver conflictos.</p>
-
-      <h4>¿Y que hay de la química?</h4>
-      <p>Al besarnos liberamos oxitocina y sus receptores se encuentran también en el corazón, esta hormona puede jugar un papel importante en el desarrollo del sentimiento del amor y sus síntomas, como las palpitaciones, la alegría, el sudor, bueno tu ya sabes cuales, ¿verdad?</p>
     </p>
+    <ul>
+      <li>
+        Besar a la pareja en la boca, sentir su aliento y saliva, recoge informaciones químicas y biológicas sobre él o ella.
+      </li>
+      <li>
+        El beso en la boca permite establecer un lazo sólido.
+      </li>
+      <li>
+        Besarse en la boca tiene por función lograr el estado de excitación que precede a una relación sexual.
+      </li>
+    </ul>
+    <p>Podemos pensar que todo se reduce a un tema meramente reproductivo, pero los chimpancés nos muestran que no siempre es así, ellos se besan entre machos y como método de reconciliación después de resolver conflictos.</p>
 
-    <div>Si llegaste hasta aquí, cuéntanos ¿que te pareció? Tus repuestas son completamente anónimas. Pronto tendremos más sorpresas para ustedes.</div>
+    <h4 class="dark">¿Y qué hay de la química?</h4>
+    <p>Al besarnos liberamos oxitocina y sus receptores se encuentran también en el corazón, esta hormona puede jugar un papel importante en el desarrollo del sentimiento del amor y sus síntomas, como las palpitaciones, la alegría, el sudor, bueno tu ya sabes cuales, ¿verdad?</p>
+
+    <p>Si llegaste hasta aquí, cuéntanos ¿qué te pareció? Tus repuestas son completamente anónimas. Pronto tendremos más sorpresas para ustedes.</p>
+
+    <div class="feedback-form">
+      <template v-for="option in options">
+        <input type="checkbox" class="cb" :id="`option${option.id}`" :value="option.id" v-model="answers">
+        <label :for="`option${option.id}`">{{ option.description }}</label>
+        <br>
+      </template>
+      <br>
+      <div class="button-container">
+        <button class="button cta-button">Enviar</button>
+      </div>
+    </div>
 
     <footer>
-      Del equipo de Salvando el semestre para el mundo - 2019
+      El equipo de Salvando el semestre - 2019
     </footer>
   </div>
 </template>
@@ -53,11 +64,27 @@ export default {
   async asyncData() {
     return {
       sources: {
-        s0: false,
-        s1: false,
-        s2: false,
-        s3: false
-      }
+        s0: false
+      },
+      answers: [],
+      options: [
+        {
+          id: 1,
+          description: 'Me pareció interesante'
+        },
+        {
+          id: 2,
+          description: 'Es muy corto'
+        },
+        {
+          id: 3,
+          description: 'Deseo ver mas fuentes de información'
+        },
+        {
+          id: 4,
+          description: 'Ya sabía sobre el tema, pero me gusta el formato'
+        }
+      ]
     }
   },
   methods: {
@@ -72,6 +99,41 @@ export default {
 </script>
 
 <style scoped>
+.cb {
+  display: none;
+}
+label {
+  display: inline-block;
+  position: relative;
+  padding-left: 25px;
+  font-size: 16px;
+  line-height: 20px;
+  margin: 5px;
+}
+label:before {
+  line-height: 20px;
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  left: 0;
+  background-color: #ffffff;
+  border: 1px solid #666666;
+}
+input[type=checkbox]:checked + label:before {
+  content: "\2713";
+  color: #4CB5F5;
+  font-weight: bold;
+  text-align: center;
+  line-height: 16px;
+}
+.gray {
+  color: rgba(0,0,0,.54);
+}
+.dark {
+  color: #34675C;
+}
 a {
   color: #4CB5F5;
   text-decoration: none;
@@ -79,12 +141,12 @@ a {
 .hero h1 {
   color: var(--color-green);
   font-size: 2.5em;
-  margin: 0;
 }
 .container {
   padding-bottom: 0;
   flex-direction: column;
   color: rgba(0, 0, 0, 0.76);
+  line-height: 23px;
 }
 .source {
   font-style: italic;
@@ -92,7 +154,6 @@ a {
   color: rgba(0, 0, 0, 0.56);
 }
 footer {
-  /*background-color: #34675C;*/
   margin-bottom: 1rem;
   margin-top: 1.5rem;
   color: #b3b3b3;
@@ -100,4 +161,12 @@ footer {
   padding: 1rem 0;
   font-size: 80%;
 }
+.feedback-form {
+  min-width: 300px;
+  margin: 0 auto;
+}
+.button-container {
+  text-align: center;
+}
+
 </style>
