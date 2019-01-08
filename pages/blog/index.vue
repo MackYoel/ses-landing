@@ -48,17 +48,36 @@
       </template>
       <br>
       <div class="button-container">
-        <button class="button cta-button">Enviar</button>
+        <button class="button cta-button" @click="send">Enviar</button>
       </div>
     </div>
 
     <footer>
       El equipo de Salvando el semestre - 2019
     </footer>
+    <!-- Facebook Pixel Code -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '748805002144099');
+      fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=748805002144099&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Facebook Pixel Code -->
   </div>
 </template>
 
 <script>
+import Cookies from 'js-cookie'
+
 export default {
 
   async asyncData() {
@@ -90,6 +109,10 @@ export default {
   methods: {
     toggleSource(index) {
       this.sources[`s${index}`] = !this.sources[`s${index}`]
+    },
+
+    send() {
+
     }
   },
 
